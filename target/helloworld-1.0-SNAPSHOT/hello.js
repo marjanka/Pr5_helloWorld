@@ -60,6 +60,13 @@ function enableButtons () {
 
 	// Update the button label now that the button is active
 	btn.value="Click me for a personal greeting by time of day";
+	
+	// Set the onclick action for the third button
+	btn = document.getElementById("meeting_at_time");
+	btn.onclick=function(){meetingAtSomeTime();};
+
+	// Update the button label now that the button is active
+	btn.value="Click me for arangament meeting";
 }
 
 /*
@@ -101,6 +108,17 @@ function greetByPeriod () {
 	request.execute(sayHelloCallback);
 	}
 
+function meetingAtSomeTime () {
+	// Get the name from the name_field element
+	var name = document.getElementById("name_field").value;
+	var time = document.getElementById("time_field").value;
+
+	// Call the sayHelloByName() function.
+	// It takes one argument "name"
+	// On success, pass the response to sayHelloCallback()
+	var request = gapi.client.helloworldendpoints.meetingAtSomeTime({'name': name, 'time':time});
+	request.execute(sayHelloCallback);
+	}
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response

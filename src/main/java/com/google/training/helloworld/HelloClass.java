@@ -14,6 +14,10 @@ public class HelloClass {
     	this.message = " Good "+ period + " " + name + "!";
     	}
     
+    public HelloClass(String name, int time){
+    	this.message = " Dear "+ name + ", see you at "  + time +" oclock!";
+    	}
+    
     public String getMessage() {
         return message;
     }
